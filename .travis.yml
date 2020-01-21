@@ -1,0 +1,29 @@
+language: node_js
+node_js: stable
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - node_modules
+  - themes
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_7afe5c18eac3_key -iv $encrypted_7afe5c18eac3_iv
+  -in travis.key.enc -out travis.key -d
+- git config --global user.name "crabfishxy"
+- git config --global user.email "lhxxxy43@gmail.com"
+
+script:
+- hexo clean
+- hexo generate
+- hexo deploy
+
+addons:
+  ssh_known_hosts:
+  - github.com
+  - crabfishhh.com
+  - blog.crabfishhh.com
+  - 119.23.201.5
