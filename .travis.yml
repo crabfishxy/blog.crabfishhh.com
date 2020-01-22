@@ -16,6 +16,7 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa
 - git config --global user.name "crabfishxy"
 - git config --global user.email "lhxxxy43@gmail.com"
+- npm install
 
 script:
 - hexo clean
