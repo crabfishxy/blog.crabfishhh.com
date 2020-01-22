@@ -93,5 +93,8 @@ timeline:
 js: js
 css: css
 
+mathjax: 
+  enable: true
+
 # Theme version
 version: 0.0.0
