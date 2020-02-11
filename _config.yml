@@ -82,3 +82,16 @@ deploy:
   repo: git@119.23.201.5:/var/repo/blog.git
   branch: master
   message: 
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
