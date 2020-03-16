@@ -5,6 +5,7 @@ tags: 密码学
 mathjax: true
 description: 本学期选了David Wu的密码学课程，是一门比较硬核的课，本博文用来整理一下相关的笔记内容。1月23日更新基本概念，Cipher, OTP, Perfect Secrecy。1月27日更新semantically security, reduction证明
 ---
+本篇博文参考了David Wu的[Introduction to Cryptography笔记](https://www.cs.virginia.edu/dwu4/courses/sp20/syllabus.html)以及[A Graduate Course in Applied Cryptography](https://toc.cryptobook.us/book.pdf)即Stanford密码学课程教材。
 ## Overview
 Cipher定义： ($K$, $M$, $C$)，其中$K$是key-space，$M$是message-space，$C$是cyphertext-space。并且包含了`Encrypt`, `Decrypt`即加密与解密算法。
 
@@ -56,7 +57,7 @@ $$PRGAdv[A,G] = |W0-W1|$$
 
 如果对于所有的efficient adversaries A来说，$PRGAdv[A,G] = negl({\lambda})$，一个PRG是secure的
 
-除了上述两个实验，我们还可以定义另外两个实验，adversory给challenger两个messages，$m_0$和$m_1$实验0对$m_0$进行加密，实验1对$m_1$进行加密，adversory则进行猜测，判断密文对应的明文是哪个，并输出0或1。
+除了上述两个实验，我们还可以定义另外两个实验，adversary给challenger两个messages，$m_0$和$m_1$实验0对$m_0$进行加密，实验1对$m_1$进行加密，adversary则进行猜测，判断密文对应的明文是哪个，并输出0或1。
 $$
 W_0=Pr[b'=1 | b=0]\\
 W_1=Pr[b'=1 | b=1]
@@ -97,7 +98,7 @@ Experiment 0: Adversary选择$m_0$和$m_1$，并接受$c_0=t{\oplus}m_1$
 =>$|W_0-W_1| = |W_0-W_0'+W_0'-W_1'+W1'-W1| {\leq} |W_0-W0'| + |W0'-W1'| + |W1'-W1|
 = negl + negl = negl$
 
-那么只需证明G是secure PRG的情况下，对于所有的efficient adversory, $|W_0-W_0'|=negl$
+那么只需证明G是secure PRG的情况下，对于所有的efficient adversary, $|W_0-W_0'|=negl$
 
 这里我们可以利用reduction的方法进行证明，首先构造逆否命题，如果A可以分辨实验0和实验0‘，那么G不是一个secure PRG。
 
@@ -105,3 +106,27 @@ Experiment 0: Adversary选择$m_0$和$m_1$，并接受$c_0=t{\oplus}m_1$
 
 我们只需在B中装入A，challenger和在定义secure PRG的实验中相同，我们将challenger生成的t与m进行异或交给B中的A，将A生成的结果输出就能打破PRG的security。可以参考这张图：
 ![reduction](Cryptography笔记/reduction.png)
+
+目前PRG是否存在仍是未知的，如果PRG存在，那么就证明了$P \neq NP$。教授上课提到了几种PRGs，例如Linear congruential generator, Linear feedback shift registers(LFSRs), content scrambling system(CSS)等，当然这些都已经被破解了。现代使用的Stream Ciphers主要是ChaCha。各位可以自行了解，此处不表。
+
+## Block Cipher
+即使stream cipher是安全的，那么有没有攻击的方法呢？自然是有的。在之前提到的Experiment中，adversay只能得到密文一次，并且key也只使用了一次。所以无法表明在多条明文/密文情况下的安全性。所以我们需要引入更加strong的定义。
+
+### CPA-security
+CPA即chosen-plaintext attacks, 选择明文攻击。同样的，我们通过experiment来给出CPA-security的定义。
+定义： 一个encryption scheme $\pi_{se} = (Encrypt, Decrypt)$是CPA-secure的当对所有efficient adversaries A来说：
+$$
+CPAAdv[A,\pi_{se}] = |Pr[W_0 = 1 -Pr[W_1=1]|= negl.
+$$
+其中$W_b(b\in{0,1})$是下面这个试验的输出:
+![CPA-game](Cryptography笔记/CPAgame.png)
+可以看到这个试验和semantic security game非常相似，即发给challenger $m_0$及$m_1$。而challenger则输出对$m_b$的加密结果，其中$b$是随机的。而adversary则要猜测b，并且可以多次发送query。
+
+根据定义，我们可以证明stream cipher不是CPA-secure的。我们只需进行两次查询即可。
+![](Cryptography笔记/sc-not-cpa-secure.png)
+第一次adversary发送$m_0,m_0$，就会得到$c=m_0\oplus G(s)$，随后再发送$m_0,m_1$得到$c'=m_b\oplus G(s)$。因此我们只需在c=c'输出0反之输出1即可。
+
+因此我们可以看出CPA-secure要求加密是随机的。这也是为什么我们需要block cipher的原因。Block cipher是基于密钥可逆的，将n bits的输入映射到n bits的输出上。
+
+首先我们需要了解pseudorandom functions(PRFS)和pseudorandom permutations(PRPs)，PRFs的表现类似于随机函数，而PRPs则像随机排列。
+
