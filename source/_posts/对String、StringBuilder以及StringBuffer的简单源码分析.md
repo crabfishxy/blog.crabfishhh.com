@@ -1,7 +1,7 @@
 ---
 title: 对String、StringBuilder以及StringBuffer的简单源码分析
 date: 2018-04-13 00:02:52
-tags: JAVA
+tags: Java
 description: 对源码进行了阅读以及简单地分析
 ---
 ## String StringBuilder StringBuffer的主要数据组织及功能实现
