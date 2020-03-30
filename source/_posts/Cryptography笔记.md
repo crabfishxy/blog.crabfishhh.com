@@ -3,9 +3,9 @@ title: Cryptography笔记
 date: 2020-01-19 15:47:24
 tags: 密码学
 mathjax: true
-description: 本学期选了David Wu的密码学课程，是一门比较硬核的课，本博文用来整理一下相关的笔记内容。1月23日更新基本概念，Cipher, OTP, Perfect Secrecy。1月27日更新semantically security, reduction证明。3月15日更新CPA-security。
+description: 本学期选了David Wu的密码学课程，是一门比较硬核的课，本博文用来整理一下相关的笔记内容。1月23日更新基本概念，Cipher, OTP, Perfect Secrecy。1月27日更新semantically security, reduction证明。3月15日更新CPA-security。3月29日更新CPA相关的进一步概念。
 ---
-本篇博文参考了David Wu的[Introduction to Cryptography笔记](https://www.cs.virginia.edu/dwu4/courses/sp20/syllabus.html)以及[A Graduate Course in Applied Cryptography](https://toc.cryptobook.us/book.pdf)即Stanford密码学课程教材。
+本篇博文参考了David Wu的[Introduction to Cryptography笔记](https://www.cs.virginia.edu/dwu4/courses/sp20/syllabus.html)以及[A Graduate Course in Applied Cryptography](https://toc.cryptobook.us/book.pdf)即Stanford密码学课程教材。 这些资源在网上都可以轻易得到，对于想要系统了解密码学的同学务必亲自去阅读一下，其中Stanford的CS255课程在Coursera甚至B站上也是可以免费听的。我在这篇博文中尽力用自己的方式进行理解和翻译，如有不严谨或者错误的地方，烦请指出，不胜感激！
 ## Overview
 Cipher定义： ($K$, $M$, $C$)，其中$K$是key-space，$M$是message-space，$C$是cyphertext-space。并且包含了`Encrypt`, `Decrypt`即加密与解密算法。
 
@@ -130,3 +130,14 @@ $$
 
 首先我们需要了解pseudorandom functions(PRFS)和pseudorandom permutations(PRPs)，PRFs的表现类似于随机函数，而PRPs则像随机排列。
 
+#### 对CPA-security的进一步理解
+最近一周是Cryptography的期中测试，是take home开卷形式的。第一题就是和CPA-security相关，让我对CPA-security有了更进一步的了解。题目的第一问就是让我们证明，当明文与密文的长度相同时，一个对称加密的scheme一定不是CPA-security的。
+
+开始时并没有太多的思路，当然也是因为对于CPA-security的理解还不够深入。其实CPA-security的一个核心概念就是，deterministic的scheme，即确定性的scheme一定不是CPA-secure的。所以我们只需要证明在明文与密文的长度相同时，这个scheme是确定性的。对于任意一个固定的key，根据encryption scheme的正确性定义，从明文到密文的映射Encrypt(k,·)必定是injective，即单射的。这说明不可能有两个相同的明文映射到同一个密文上，这个并不理解，否则在解密时对于这个密文而言，我应该还原成哪个明文呢？而又因为domain和Encrypt(k,·)的范围是一样的，这就意味着Encrypt(k,·)同时也是bijection即双射的。这意味着一个明文必定映射到一个密文上。所以这是一个确定性的scheme，自然不可能是CPA-secure的。
+
+而这个问题的第二问则是计算在密文的长度m大于明文的长度n时，且m-n=l时，如何break CPA-secure，其中l < n/2。对于这题，我们可以构造一个发送q次query请求的advasary，其中$q<2^n$。
+
+1. 对于i = 1,...,q, 提交query $(0^n, i)$，然后challenger返回的结果为$ct_i$。
+2. 如果存在$1 \leq i \neq j \leq q$使得$ct_i = ct_j$，adversary输出1，否则输出0。
+
+然后我们可以计算一下上述adversary的advantage。当b=0时，意味着challenger是对$0^n$字符串加密。因为m-n=l，所以$ct_i$是在$2^l$上随机分布的密文。根据birthday bound的原理（即一个正常的班级中大概率有两个人生日相同），如果$q \geq 1.2\sqrt{2^l}$时，存在$ct_i = ct_j$的概率超过了1/2。而当b=1时，因为challenger每次加密的都是不同的明文，所以不存在$ct_i=ct_j$的情况，即概率为0。所以当$q \geq 1.2\sqrt{2^l}$，那么上述adversary的advantage至少为1/2。
