@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CrabFish&#39;s Blog</title>
+  <icon>https://blog.crabfishhh.com/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.crabfishhh.com/"/>
+  <updated>2021-04-06T12:54:56.960Z</updated>
+  <id>https://blog.crabfishhh.com/</id>
+  
+  <author>
+    <name>CrabFish</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>上海字节实习小记</title>
+    <link href="https://blog.crabfishhh.com/2020/10/06/%E4%B8%8A%E6%B5%B7%E5%AD%97%E8%8A%82%E5%AE%9E%E4%B9%A0%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://blog.crabfishhh.com/2020/10/06/%E4%B8%8A%E6%B5%B7%E5%AD%97%E8%8A%82%E5%AE%9E%E4%B9%A0%E5%B0%8F%E8%AE%B0/</id>
+    <published>2020-10-05T16:17:50.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      距离实习结束也快一个月了，趁着记忆没有模糊来记录一下
+    
+    </summary>
+    
+    
+    
+      <category term="杂谈" scheme="https://blog.crabfishhh.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现一个简单的任务调度器</title>
+    <link href="https://blog.crabfishhh.com/2020/10/01/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
+    <id>https://blog.crabfishhh.com/2020/10/01/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/</id>
+    <published>2020-10-01T04:34:25.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      基于本学期的操作系统课程而写的博文，适合学习且易上手
+    
+    </summary>
+    
+    
+    
+      <category term="操作系统" scheme="https://blog.crabfishhh.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>年轻人的第一块树莓派</title>
+    <link href="https://blog.crabfishhh.com/2020/03/08/%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E5%9D%97%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    <id>https://blog.crabfishhh.com/2020/03/08/%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E5%9D%97%E6%A0%91%E8%8E%93%E6%B4%BE/</id>
+    <published>2020-03-08T08:54:02.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      记录一下树莓派怎么玩，之后可能会不定期更新
+    
+    </summary>
+    
+    
+    
+      <category term="树莓派" scheme="https://blog.crabfishhh.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cryptography笔记</title>
+    <link href="https://blog.crabfishhh.com/2020/01/19/Cryptography%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.crabfishhh.com/2020/01/19/Cryptography%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-01-19T07:47:24.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      本学期选了David Wu的密码学课程，是一门比较硬核的课，本博文用来整理一下相关的笔记内容。1月23日更新基本概念，Cipher, OTP, Perfect Secrecy。1月27日更新semantically security, reduction证明。3月15日更新CPA-security。3月29日更新CPA相关的进一步概念。
+    
+    </summary>
+    
+    
+    
+      <category term="密码学" scheme="https://blog.crabfishhh.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给网站配置ssl证书</title>
+    <link href="https://blog.crabfishhh.com/2020/01/18/%E7%BB%99%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AEssl%E8%AF%81%E4%B9%A6/"/>
+    <id>https://blog.crabfishhh.com/2020/01/18/%E7%BB%99%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AEssl%E8%AF%81%E4%B9%A6/</id>
+    <published>2020-01-18T03:42:12.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      之前Godaddy的域名居然过期了，重新去阿里云买了一个，顺便把ssl证书配置好了，记录一下
+    
+    </summary>
+    
+    
+    
+      <category term="建站" scheme="https://blog.crabfishhh.com/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一篇自省</title>
+    <link href="https://blog.crabfishhh.com/2019/11/05/%E4%B8%80%E7%AF%87%E8%87%AA%E7%9C%81/"/>
+    <id>https://blog.crabfishhh.com/2019/11/05/%E4%B8%80%E7%AF%87%E8%87%AA%E7%9C%81/</id>
+    <published>2019-11-05T07:26:18.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      吾日三省吾身
+    
+    </summary>
+    
+    
+    
+      <category term="思考" scheme="https://blog.crabfishhh.com/tags/%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ANTLR4笔记</title>
+    <link href="https://blog.crabfishhh.com/2019/01/17/ANTLR4%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.crabfishhh.com/2019/01/17/ANTLR4%E7%AC%94%E8%AE%B0/</id>
+    <published>2019-01-16T18:33:18.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      最近毕业设计有涉及到部分编译原理的内容，又要接触到词法、文法这些东西，因为是基于Java平台，就发现了ANTLR4这个非常好用的工具。其实它不仅可以生成Java目标代码，C++, Python都是可以的。非常后悔没有在上程序设计方法学和编译原理课程时发现它。
+    
+    </summary>
+    
+    
+      <category term="技术备忘" scheme="https://blog.crabfishhh.com/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/"/>
+    
+    
+      <category term="编程语言" scheme="https://blog.crabfishhh.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Java" scheme="https://blog.crabfishhh.com/tags/Java/"/>
+    
+      <category term="Parser" scheme="https://blog.crabfishhh.com/tags/Parser/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对String、StringBuilder以及StringBuffer的简单源码分析</title>
+    <link href="https://blog.crabfishhh.com/2018/04/13/%E5%AF%B9String%E3%80%81StringBuilder%E4%BB%A5%E5%8F%8AStringBuffer%E7%9A%84%E7%AE%80%E5%8D%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>https://blog.crabfishhh.com/2018/04/13/%E5%AF%B9String%E3%80%81StringBuilder%E4%BB%A5%E5%8F%8AStringBuffer%E7%9A%84%E7%AE%80%E5%8D%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
+    <published>2018-04-12T16:02:52.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      对源码进行了阅读以及简单地分析
+    
+    </summary>
+    
+    
+    
+      <category term="Java" scheme="https://blog.crabfishhh.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode部分问题归档</title>
+    <link href="https://blog.crabfishhh.com/2018/03/29/LeetCode%E9%83%A8%E5%88%86%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/"/>
+    <id>https://blog.crabfishhh.com/2018/03/29/LeetCode%E9%83%A8%E5%88%86%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/</id>
+    <published>2018-03-29T05:23:02.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      摘取部分LeetCode中遇到的对个人有启发作用的问题和解法
+    
+    </summary>
+    
+    
+    
+      <category term="算法 OJ" scheme="https://blog.crabfishhh.com/tags/%E7%AE%97%E6%B3%95-OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>这是一篇通过Hexo生成的博文</title>
+    <link href="https://blog.crabfishhh.com/2018/03/20/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E9%80%9A%E8%BF%87Hexo%E7%94%9F%E6%88%90%E7%9A%84%E5%8D%9A%E6%96%87/"/>
+    <id>https://blog.crabfishhh.com/2018/03/20/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E9%80%9A%E8%BF%87Hexo%E7%94%9F%E6%88%90%E7%9A%84%E5%8D%9A%E6%96%87/</id>
+    <published>2018-03-20T06:33:42.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      需要谨记花里胡哨的框架没啥用，重要的还是内容
+    
+    </summary>
+    
+    
+    
+      <category term="建站" scheme="https://blog.crabfishhh.com/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识CubeMX</title>
+    <link href="https://blog.crabfishhh.com/2018/03/18/%E5%88%9D%E8%AF%86CubeMX/"/>
+    <id>https://blog.crabfishhh.com/2018/03/18/%E5%88%9D%E8%AF%86CubeMX/</id>
+    <published>2018-03-18T06:12:59.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      STM32CubeMX是一个配置STM32代码的工具。优点就是可以利用ST公司自己的外设库和HAL库将很多代码封装好，自动生成具有良好结构的代码，使STM32的开发更加简单。
+    
+    </summary>
+    
+    
+      <category term="课程相关" scheme="https://blog.crabfishhh.com/categories/%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="嵌入式" scheme="https://blog.crabfishhh.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux+Windows双系统快速安装指北</title>
+    <link href="https://blog.crabfishhh.com/2018/03/13/Linux-Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/"/>
+    <id>https://blog.crabfishhh.com/2018/03/13/Linux-Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/</id>
+    <published>2018-03-12T18:33:18.000Z</published>
+    <updated>2021-04-06T12:54:56.960Z</updated>
+    
+    <summary type="html">
+    
+      从准备工作开始到正常开机进入系统大约耗时2小时
+    
+    </summary>
+    
+    
+      <category term="技术备忘" scheme="https://blog.crabfishhh.com/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/"/>
+    
+    
+      <category term="系统" scheme="https://blog.crabfishhh.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World!</title>
+    <link href="https://blog.crabfishhh.com/2018/02/25/%E6%9C%89%E5%85%B3%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://blog.crabfishhh.com/2018/02/25/%E6%9C%89%E5%85%B3%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2018-02-25T05:47:56.000Z</published>
+    <updated>2021-04-06T12:54:56.970Z</updated>
+    
+    <summary type="html">
+    
+      有关这个博客和我
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="https://blog.crabfishhh.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="思考" scheme="https://blog.crabfishhh.com/tags/%E6%80%9D%E8%80%83/"/>
+    
+      <category term="杂谈" scheme="https://blog.crabfishhh.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="建站" scheme="https://blog.crabfishhh.com/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+</feed>

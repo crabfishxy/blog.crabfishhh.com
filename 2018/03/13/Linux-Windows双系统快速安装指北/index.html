@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Linux+Windows双系统快速安装指北 | CrabFish's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux+Windows双系统快速安装指北</h1><a id="logo" href="/.">CrabFish's Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Linux+Windows双系统快速安装指北</h1><div class="post-meta">Mar 13, 2018<span> | </span><span class="category"><a href="/categories/技术备忘/">技术备忘</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/03/13/Linux-Windows双系统快速安装指北/" href="/2018/03/13/Linux-Windows双系统快速安装指北/#disqus_thread"></a><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近感觉需要用到Linux的地方比较多，并且迟早得习惯于在Linux环境下工作的，所以决定不再使用虚拟机，直接装个双系统，然后争取能长期在Linux环境中工作学习(顺便能抛弃游戏)。其实去年差不多也是这个时候是装过Ubuntu16.04的，当时在分区的时候好像遇到过一些不明所以的问题，后来也不知道怎么解决的，磕磕绊绊的算装好了。结果最后都没用过几天，毕竟在Windows环境下已经用了十多年了，习惯的力量还是最强大的。</p>
+<h2 id="计算机环境"><a href="#计算机环境" class="headerlink" title="计算机环境"></a>计算机环境</h2><p>我本身的系统是Windows10教育版，然后有两个硬盘，一个是120G的固态，一个是1T的机械硬盘。网上有关分区的说法有很多，看的我眼花，最后也没有多想，拍拍脑袋做出了分区的规划：</p>
+<ul>
+<li>/boot分区500M，放在SSD</li>
+<li>/分区20G，放在SSD</li>
+<li>/swap分区8G(与内存相同)，放在HDD，其实我更加倾向于不需要交换分区，但机械硬盘比较充足，还是分了8G，反正SSD的空间是不可能给的。</li>
+<li>/home分区70G</li>
+</ul>
+<p>这就是我的分区规划，仅供参考，根目录还是得放在SSD里面的，应该能对日常使用提速不少。</p>
+<p>Linux发行版我最后选择了Mint，因为看了下界面比较合我心意啦，而且还是基于Ubuntu 16.04的，网上也有说法对于驱动的安装更加友好。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先就是得制作系统盘，这里需要用的是ultraiso，也就是软碟通,制作方法这里不详细介绍，简述一下流程：</p>
+<ol>
+<li><p>打开镜像文件，即选择我们之前下载的Mint的iso文件</p>
+</li>
+<li><p>然后选择写入硬盘映像</p>
+</li>
+<li><p>点击“便捷启动”，然后再弹出的菜单中依次选择“写入新的驱动器引导扇区”，再选择“Syslinux”，这应该是比较重要的一步。</p>
+</li>
+<li><p>写入，等待。</p>
+</li>
+</ol>
+<p>然后得给Mint腾出空间，理论上来说可以直接使用Win10自带的磁盘管理工具来压缩卷，但在SSD可用容量还有50G的时候，它连压10G出来都会提示可用空间不足。。。所以我还是使用了第三方工具DiskGenius，压了20G出来给根目录。然后从G盘抽了70G，F盘抽了8G，至此，准备工作算是完成了。</p>
+<p>然后直接重启，进BIOS，我是在电脑出现战神LOGO时按F2即可。进入后设置启动项为U盘，然后保存并重启。之后就进入安装界面啦。这里其实没有什么可多说的，直接按着流程走，记住在询问安装选项时选择“其他安装设置”，然后按着规划好的分区来分配之前压缩的磁盘空间即可。<strong>比较关键的是选择启动引导的时候要选择之前分配给/boot的那500M分区</strong>，重启。在BIOS重新设置从SSD启动（根据自己系统实际安装位置决定）。</p>
+<h2 id="进入"><a href="#进入" class="headerlink" title="进入"></a>进入</h2><p>因为还没有设置引导项，所以还是正常地从Win10进入，然后只需安装EasyBCD或者其他类似的能够设置开机引导项的软件，新建引导条目，选Linux，然后选择之前分配的boot分区即可。再次重启，就可以在开机时选择Mint啦！</p>
+<p>如果照着这个流程走的话全程大约一个小时，可以说是非常快了呢！</p>
+<h2 id="Mint配置"><a href="#Mint配置" class="headerlink" title="Mint配置"></a>Mint配置</h2><p>相比安装，在安装完成后对系统的配置才更加耗时耗力。我这里选择较为关键的几个点来说说：</p>
+<h3 id="更换软件源"><a href="#更换软件源" class="headerlink" title="更换软件源"></a>更换软件源</h3><p>本来打算用zju自己的源，结果没找到？最后用的是中科大的源。。。反正速度肯定还是不差的，国内几个大学的源都很快。</p>
+<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><p>这个事情优先级还是很高的，毕竟很多问题baidu上搜不到可能得依靠google搜索在国外论坛找到答案。</p>
+<h4 id="安装ssr"><a href="#安装ssr" class="headerlink" title="安装ssr"></a>安装ssr</h4><p>我是使用ssr来科学上网，这里也简略讲一下流程，先安装ssr:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.djangoz.com/ssr</span><br><span class="line">sudo mv ssr /usr/local/bin</span><br><span class="line">sudo chmod 766 /usr/local/bin/ssr</span><br><span class="line">ssr install</span><br><span class="line">ssr config</span><br></pre></td></tr></table></figure>
+<p>这里可能得先装好git，在install的时候会用到。至于config怎么配置，不是这篇文章讨论的范畴。</p>
+<p>config结束后会自动启动，如果配置没问题应该就自动会在后台运行了。</p>
+<h4 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h4><p>其实火狐也是一个很好的选择，但个人还是习惯使用chrome。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#添加下载源(现在自然不可能用google官方的源)</span><br><span class="line">sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/</span><br><span class="line">#添加公钥</span><br><span class="line">wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -</span><br><span class="line">#更新软件源</span><br><span class="line">sudo apt-get update</span><br><span class="line">#开始下载安装</span><br><span class="line">sudo apt-get install google-chrome-stable</span><br><span class="line">#运行</span><br><span class="line">/usr/bin/google-chrome-stable</span><br></pre></td></tr></table></figure></p>
+<p>我在运行的时候还遇到了错误，nss版本不够（大概这个意思），只要更新一下就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install --reinstall libnss3</span><br></pre></td></tr></table></figure>
+<p>然后配置SwitchyOmega，开开心心上网吧。至于终端也需要科学上网的话还需要privoxy，这里不赘述了，网上有教程。</p>
+<h3 id="换字体"><a href="#换字体" class="headerlink" title="换字体"></a>换字体</h3><p>这个是比较恶心的一点，据说是因为安装时如果联网Mint会给你下载楷体(具体是什么类型的楷体我也不知道)作为系统字体，难看的一比，在系统的字体修改之后菜单栏等地方还是没变，不知道什么情况，最后直接卸载了这个字体才算搞定。。。</p>
+<h3 id="装驱动"><a href="#装驱动" class="headerlink" title="装驱动"></a>装驱动</h3><p>同样比较复杂的东西，Mint自带的驱动管理就可以下载英伟达的闭源驱动，安装完后记得在重启前禁用原来的nouveau开源驱动，否则启动就会桌面崩溃，进入备用桌面。。。</p>
+<p>所以得先把nouveau加到黑名单里去，编辑/etc/modprobe.d/blacklist-modem.conf ，在文件后面加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau option nouveau modeset=0</span><br></pre></td></tr></table></figure></p>
+<p>然后重启就好了，能在右下角看到英伟达的绿眼睛了。</p>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>基本这么走下来值得注意的点就这么多，剩下的什么美化桌面，java环境，娱乐啥的都很方便就可以弄好了，Mint和Windows的桌面GUI相似度非常高，Jetbrains大礼包也都支持Windows平台。</p>
+<p>顺带一提，linux上的steam真是惊到我了，本人28款游戏有16款是支持的，已经过半了，其中还有CS:GO，DOTA2这种大作，steam牛逼，G胖牛B！只是如果想传火还是得回Windows去。。。</p>
+</div><div class="tags"><a href="/tags/系统/">系统</a></div><div class="post-nav"><a class="pre" href="/2018/03/18/初识CubeMX/">初识CubeMX</a><a class="next" href="/2018/02/25/有关这个博客/">Hello World!</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'CrabFish';
+var disqus_identifier = '2018/03/13/Linux-Windows双系统快速安装指北/';
+var disqus_title = 'Linux+Windows双系统快速安装指北';
+var disqus_url = 'https://blog.crabfishhh.com/2018/03/13/Linux-Windows双系统快速安装指北/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//CrabFish.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://blog.crabfishhh.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术备忘/">技术备忘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/课程相关/">课程相关</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/树莓派/" style="font-size: 15px;">树莓派</a> <a href="/tags/算法-OJ/" style="font-size: 15px;">算法 OJ</a> <a href="/tags/思考/" style="font-size: 15px;">思考</a> <a href="/tags/嵌入式/" style="font-size: 15px;">嵌入式</a> <a href="/tags/杂谈/" style="font-size: 15px;">杂谈</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/系统/" style="font-size: 15px;">系统</a> <a href="/tags/建站/" style="font-size: 15px;">建站</a> <a href="/tags/编程语言/" style="font-size: 15px;">编程语言</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Parser/" style="font-size: 15px;">Parser</a> <a href="/tags/密码学/" style="font-size: 15px;">密码学</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/10/06/上海字节实习小记/">上海字节实习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/01/实现一个简单的任务调度器/">实现一个简单的任务调度器</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/年轻人的第一块树莓派/">年轻人的第一块树莓派</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Cryptography笔记/">Cryptography笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/18/给网站配置ssl证书/">给网站配置ssl证书</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/05/一篇自省/">一篇自省</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/ANTLR4笔记/">ANTLR4笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/13/对String、StringBuilder以及StringBuffer的简单源码分析/">对String、StringBuilder以及StringBuffer的简单源码分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/LeetCode部分问题归档/">LeetCode部分问题归档</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/这是一篇通过Hexo生成的博文/">这是一篇通过Hexo生成的博文</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//CrabFish.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">CrabFish's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a> <br><a rel="nofollow" target="_blank" href="http://www.beian.miit.gov.cn">浙ICP备17058174号</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
